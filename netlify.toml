@@ -15,6 +15,5 @@
 
 [[redirects]]
 from = "/"
-to = "/endsars/"
-status = "302"
-force = true
+to = "/endsars"
+status = 302
