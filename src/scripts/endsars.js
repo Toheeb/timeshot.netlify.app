@@ -1,6 +1,8 @@
 // Step 1: Hide all elements
-const jsData = document.getElementById('js-data');
-jsData.classList.add('js-active')
+disableAll('.entry__summary')
+disableAll('.entry')
+
+document.getElementById('cases').style.display = 'flex'
 
 const menuItems = document.querySelectorAll('.nav__item')
 
@@ -22,14 +24,13 @@ function revealData() {
     // Make element active
     makeLinkActive(this)
 
-    disableAllDetails()
+    disableAll('.entry')
 
     document.querySelector(id).style.display = 'flex'
-    document.querySelector(id).style.paddingTop = '3.5rem'
 }
 
-function disableAllDetails() {
-    const entryDetails = document.querySelectorAll('.entry')
+function disableAll(classname) {
+    const entryDetails = document.querySelectorAll(classname)
 
     for (let i = 0; i < entryDetails.length; i++) {
         entryDetails[i].style.display = 'none'

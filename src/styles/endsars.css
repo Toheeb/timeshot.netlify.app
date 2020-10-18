@@ -1,12 +1,13 @@
-
-/* For Twitter */
-blockquote {
-    margin: 0;
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-}
+/* 
+ * Overview
+ *
+ * - Body 
+ * - Description 
+ * - Logo 
+ * - Nav 
+ * - Data (Twitter Embeds)
+ * - Footer
+ */
 
 .page {
     margin: 0;
@@ -15,69 +16,81 @@ blockquote {
     background-color: rgb(246,254,254);
 }
 
-.logo {
+.page__logo {
     margin: 0;
     display: flex;
     justify-content: center;
 }
 
-.description {
+.page__description {
     text-align: center;
     margin: 0 0 0.5rem 0;
     color: rgb(103,137,116);
 }
 
-/* * {
-    outline: 1px solid red;
-} */
-
-.nav-cont {
-    /* display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem; */
-
+.page__nav {
     position: sticky;
     top: -1px;
-    overflow: scroll;
+    
+    overflow: auto;
     text-align: center;
-    /* box-shadow: 0 2px 2px rgb(213,247,226); */
 }
 
+.page__data {
+    margin: 0 0 3rem 0;
+}
+
+.page__footer {
+    text-align: center;
+    color: #616f6a;
+}
+
+
+
+
+/* 
+ * Nav Styling
+ */
 .nav {
-    list-style-type: none;
     display: inline-flex;
-    padding: 0.75rem 1rem;
-    justify-content: center;
-    margin: 0;
+    padding: 0.5rem 0 1rem;
     background-color: rgba(250, 255, 250, 0.7);
     
-    /* width: 100%;
-    overflow-x: scroll;
-    justify-content: center;
-    box-sizing: border-box; */
-
-    /* position: sticky;
-    top: 0; */
+    position: relative;
 }
 
-
-/* Spacing between extreme ends of a single line flex container */
-.nav:before,
-.nav:after {
+.nav::before {
     content: '';
-    flex: 0 0 1rem;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
 }
 
 .nav__item {
     background: #efefef;
-    padding: 0.2rem 1rem 0.3rem;
+    padding: 0.2rem 1rem 0.1rem;
     border-radius: 0.3rem;
     text-decoration: none;
-    display: block;
     color: rgb(58,77,73);
 
     margin: 0 0.5rem;
 }
+
+
+/* 
+ * Pad the Left & Right sides of the flex container
+ */
+.nav__item:first-child {
+    margin-left: 1.5rem;
+}
+
+.nav__item:last-child {
+    margin-right: 1.5rem;
+}
+
 
 .nav__item_pinkish-bg {
     background-color: rgb(254,228,229);
@@ -91,25 +104,41 @@ blockquote {
     background-color: rgb(253,237,211);
 }
 
+
 .nav__item_active {
     background: none;
-    border-bottom: 4px solid rgb(58,77,73);
+    border-bottom: 0.25rem solid #008753;
     position: relative;
 }
 
 .nav__item_active::after {
     content: '\023df';
     position: absolute;
-    bottom: -0.5rem;
+    bottom: -0.4rem;
     left: 0;
     right: 0;
     font-weight: bold;
-    color: rgb(58,77,73);
+    color: #008753;
     font-size: 1rem;
 }
 
+
+
+
+/* 
+ * Twitter Embeds
+ */
 .entry {
     margin-bottom: 0.5rem;
+
+    /* 
+     * Manage spacing before & after anchor jump to
+     * accomodate sticky nav.
+     *
+     * See: SO-10732690
+     */
+    padding-top: 3.5rem;
+    margin-top: -2rem;
 }
 
 .entry__summary {
@@ -122,25 +151,21 @@ blockquote {
 
 .entry__details {
     display: flex;
-    overflow-x: scroll;
+    overflow: auto;
     margin: 1rem 0 1.5rem;
 }
 
-.entry__details::-webkit-scrollbar-thumb {
-    background: rgb(33,47,36);
-    border-radius: 2rem;
-}
 
-.entry__details::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 3px rgb(168, 196, 179);
-    border-radius: 2rem;
-}
+/* 
+ * Pad the Left & Right sides of the flex container
+ */
 
 .entry__details:before,
 .entry__details:after {
     content: '';
     flex: 0 0 1rem;
 }
+
 
 .twitter-tweet-cont {
     height: 375px;
@@ -150,80 +175,64 @@ blockquote {
     padding: 0 1rem;
     margin: 0 0.25rem 1.5rem;
     word-break: break-word;
-    overflow-y: scroll;
-}
-
-/* Default look before transformation by Twitter JS file */
-blockquote.twitter-tweet {
-    width: 200px;
-}
-
-.twitter-tweet-cont::-webkit-scrollbar-thumb {
-    background: rgb(103,137,116);
-    border-radius: 2rem;
-}
-
-.data {
-    margin: 0 0 3rem 0;
-}
-
-.footer {
-    text-align: center;
-    padding: 3rem;
-    background: rgb(24,45,25);
-    color: white;
-}
-
-.js-active .entry__summary {
-    display: none;
+    overflow: auto;
 }
 
 
-
-/* ::-webkit-scrollbar-thumb {
-    background: rgb(103,137,116);
-    border-radius: 20px;
-} */
-
-
-/* ::-webkit-scrollbar-corner {
-    border-radius: 10px;
-} */
-@media screen and (min-width: 500px) {
-    
-
-
-}
 /* 
-#cases .entry__details div {
-    background-color: darkgoldenrod;
+ * Embedded Tweets
+ *
+ * Default look before transformation by Twitter JS file 
+ *
+ */
+ blockquote.twitter-tweet {
+    width: 200px;
+    padding-bottom: 1rem;
+    margin: 0;
+    color: #34423c;
 }
-#protest .entry__details div {
-    background-color: lightblue;
-} */
 
-.footerr {
-    text-align: center;
-    color: rgb(103,137,116);
+blockquote.twitter-tweet a {
+    color: #00492C;
+    text-decoration: none;
 }
-.footer-preview {
+
+blockquote.twitter-tweet > a:last-child {
+    color: #008753;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+
+/* Other Components */
+.movement-period {
+    font-size: 0.75rem;
+}
+
+.protest-img {
     display: flex;
 }
 
-.endsars-img {
+.protest-img__item {
     width: 25%;
 }
 
 .love {
-    color: green;
+    color: #008753;
 }
 
-.footer-link {
+.link_1 {
+    color: #008753;
     text-decoration: none;
-    color: rgb(58,77,73);
 }
 
-.image-credits {
+.link_2 {
+    text-decoration: none;
+    color: #00492C;
+}
+
+.img-credits {
     margin: 0.5rem auto 2rem;
     font-size: 0.875rem;
 }
