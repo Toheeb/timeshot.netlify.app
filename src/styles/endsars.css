@@ -24,7 +24,7 @@
 
 .page__description {
     text-align: center;
-    margin: 0 0 0.5rem 0;
+    margin: 0 2rem 0.5rem;
     color: rgb(103,137,116);
 }
 
@@ -45,6 +45,9 @@
     color: #616f6a;
 }
 
+.page__footer p {
+    margin: 0 2rem 1.5rem;
+}
 
 
 
