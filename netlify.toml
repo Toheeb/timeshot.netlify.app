@@ -17,10 +17,3 @@
 from = "/"
 to = "/endsars"
 status = 302
-
-[[headers]]
-  for = "/endsars"
-  [headers.values]
-    Set-Cookie = '''
-    SameSite=None,
-    Secure'''
