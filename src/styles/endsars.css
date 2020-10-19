@@ -111,20 +111,7 @@
 .nav__item_active {
     background: none;
     border-bottom: 0.25rem solid #008753;
-    position: relative;
 }
-
-.nav__item_active::after {
-    content: '\023df';
-    position: absolute;
-    bottom: -0.4rem;
-    left: 0;
-    right: 0;
-    font-weight: bold;
-    color: #008753;
-    font-size: 1rem;
-}
-
 
 
 
